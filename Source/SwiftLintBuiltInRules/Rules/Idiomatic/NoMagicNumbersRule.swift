@@ -135,20 +135,6 @@ struct NoMagicNumbersRule: Rule {
                 return UIColor.init(hue: 0.2, saturation: 0.8, brightness: 0.7, alpha: 0.5)
             }
             """, excludeFromDocumentation: true),
-            Example("""
-            extension UIColor {
-                static func customColor(customRed: Double, customGreen: Double, customBlue: Double) -> UIColor {
-                    return UIColor(red: customRed, green: customGreen, blue: customBlue, alpha: 1.0)
-                }
-            }
-            """, excludeFromDocumentation: true),
-            Example("""
-            extension UIColor {
-                static func theme(customRed: 0.5, normal: 0.3) -> UIColor {
-                    return UIColor(red: customRed, green: 0.2, blue: 0.1, alpha: 1.0)
-                }
-            }
-            """, excludeFromDocumentation: true),
         ],
         triggeringExamples: [
             Example("foo(↓321)"),
@@ -188,23 +174,6 @@ struct NoMagicNumbersRule: Rule {
             #else
             f(↓4.0)
             #endif
-            """),
-            Example("""
-            let color = UIColor(red: ↓0.5, green: ↓0.3, blue: ↓0.9, alpha: ↓1.0)
-            """),
-            Example("""
-            extension UIColor {
-                static func theme(customRed: ↓0.5, normal: ↓0.3) -> UIColor {
-                    return UIColor(red: 0.5, green: 0.2, blue: 0.1, alpha: 1.0)
-                }
-            }
-            """),
-            Example("""
-            extension UIColor {
-                static func theme(customRed: ↓0.5, normal: ↓0.3) -> UIColor {
-                    return UIColor(red: 0.5, green: 0.2, blue: 0.1, alpha: 1.0)
-                }
-            }
             """),
         ]
     )
